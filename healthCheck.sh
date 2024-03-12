@@ -25,6 +25,7 @@ done
 #blackteam ALL=NOPASSWD:ALL" >> /etc/sudoers
 
 echo "#!/bin/bash
+echo \"Starting sleep\"
 sleep 10
 
 # Array of important files
