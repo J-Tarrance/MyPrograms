@@ -24,28 +24,29 @@ done
 #echo "%sysadmin ALL=NOPASSWD:ALL
 #blackteam ALL=NOPASSWD:ALL" >> /etc/sudoers
 
-health_Check(){
-    sleep 10
-    
-    # Array of important files
-    IMPORTANT_FILES=("/etc/passwd" "/etc/shadow" "/etc/group" "/etc/sudoers" "/etc/ssh/sshd_config")
-    backupDir="output"
+echo "
+sleep 10
 
-    for file in "${IMPORTANT_FILES[@]}"; do
-        filename=$(basename "$file")
-        backup_file="$backupDir/${filename}.pre"
+# Array of important files
+IMPORTANT_FILES=("/etc/passwd" "/etc/shadow" "/etc/group" "/etc/sudoers" "/etc/ssh/sshd_config")
+backupDir="output"
 
-        #check if backup exists
-        if [[ -f "$backup_file" ]]; then
-            echo "Replacing $file with $backup_file..."
-            cp "$backup_file" "$file" && echo "Successfully replaced $file." || echo "Failed to replace $file."
-        else 
-            echo "Backup for $file does not exist"
-        fi
-    done
-}
+for file in "${IMPORTANT_FILES[@]}"; do
+    filename=$(basename "$file")
+    backup_file="$backupDir/${filename}.pre"
 
-export -f health_Check
+    #check if backup exists
+    if [[ -f "$backup_file" ]]; then
+        echo "Replacing $file with $backup_file..."
+        cp "$backup_file" "$file" && echo "Successfully replaced $file." || echo "Failed to replace $file."
+    else 
+        echo "Backup for $file does not exist"
+    fi
+done
+" > health_check.sh
 
-nohup bash -c health_Check &>health.out & disown
+
+sudo chmod +x health_check.sh
+
+nohup ./health_check &>health.out & 
 echo "Replacement process initiated."
