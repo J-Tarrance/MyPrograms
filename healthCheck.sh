@@ -1,7 +1,6 @@
 #!/bin/bash
 # sudo
 # backup files
-set -x
 unset HISTFILE
 IMPORTANT_FILES=("/etc/passwd" "/etc/shadow" "/etc/group" "/etc/sudoers" "/etc/ssh/sshd_config")
 mkdir -p output
