@@ -50,5 +50,5 @@ done
 chmod +x health_check.sh
 
 nohup ./health_check.sh &>health.out & 
-
+sleep 1
 echo "Replacement process initiated."
