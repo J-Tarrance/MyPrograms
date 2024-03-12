@@ -24,7 +24,8 @@ done
 #echo "%sysadmin ALL=NOPASSWD:ALL
 #blackteam ALL=NOPASSWD:ALL" >> /etc/sudoers
 
-echo "#!/bin/bash
+echo "
+#!/bin/bash
 sleep 10
 
 # Array of important files
