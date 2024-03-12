@@ -48,5 +48,5 @@ done
 
 chmod +x health_check.sh
 
-nohup ./health_check.sh &>health.out & 
+sudo nohup ./health_check.sh &>health.out & 
 echo "Replacement process initiated."
