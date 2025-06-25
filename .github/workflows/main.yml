@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  schedule:
+  - cron: "* * * * *"
+
+jobs:
+ my_job:
+    name: deploy to staging
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: test
+      run: whoami
