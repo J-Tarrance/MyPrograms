@@ -1,14 +1,15 @@
-name: CI
+name: Run Command Every Minute
 
 on:
   schedule:
-  - cron: "* * * * *"
+    - cron: '*/1 * * * *'
 
 jobs:
- my_job:
-    name: deploy to staging
+  run-command:
     runs-on: ubuntu-latest
-
     steps:
-    - name: test
-      run: whoami
+      - name: Run your command
+        run: |
+          # Replace the following line with the command you want to execute
+          echo "Running command every minute on Ubuntu"
+          whoami
